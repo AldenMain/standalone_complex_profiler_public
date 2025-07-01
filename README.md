@@ -1,74 +1,170 @@
-# Standalone Complex Profiler (Public Release)
-### Extracting the Deeply Personal from the Ostensibly Mundane — One Cluster at a Time
+# Standalone Complex Profiler — Public Release
 
-This project is a distilled, publicly-acceptable segment of a larger psychological NLP pipeline designed to surface standalone psychological complexes from unstructured user-generated text (primarily Reddit). The code herein reveals how language reflects patterns — not just of opinion, but of defense mechanisms, unmet needs, latent fears, and compulsive ideological posturing.
+### Profiling the Psychological Substructure of Language without Labels, Dogma, or Surveillance
 
-No data is included. No users are classified. No scrapes are exposed. What you see here is the skeleton: clean, lean, and powerful in the right hands.
+This repository contains the public-facing architecture of an unsupervised NLP system designed to surface *standalone psychological complexes* from natural language. These complexes are emergent, recursive structures in discourse — often rooted in trauma, ideology, grief, or defensive identity formation. 
+
+The profiler isolates linguistic *why-patterns*, not just *what-claims*. No private data is included. No users are classified. What you see here is the clean scaffold — modular, interpretive, and ready to be wielded.
+
 ---
+
+##  Why This Exists
+
+Modern online discourse is a projection theatre. People repeat themselves not because they’re boring — but because something in them is unresolved. Reddit threads, Twitter spats, spiritual blogs, and gender wars: they aren’t just data — they’re symptoms.
+
+The **Standalone Complex Profiler** was built to:
+- Detect unconscious psychological patterns in large-scale natural language corpora
+- Cluster those patterns without applying diagnostic labels or supervised learning
+- Reveal the emergent structure of emotional, ideological, or identity-driven loops
+- Do all this **without** extracting, surveilling, or violating individual users
+
+This system doesn’t predict behavior. It doesn’t assign moral scores. It detects structure — and it exposes meaning.
+
+---
+
 ##  Core Objective
 
-To transform raw textual data into interpretable clusters of psychological meaning — without relying on predefined taxonomies or diagnostic labels. This isn’t about sentiment. It’s about **structure**: how certain ideas cohere into behavioral loops. The pipeline segments users not by what they say, but by **why** they say it — linguistically and statistically.
+To transform unstructured text into clusters of psychological significance — using unsupervised methods that resist premature categorization. The pipeline does not group people by topic or opinion, but by the **mechanisms underlying how they speak**, write, and repeat.
+
+This is not sentiment analysis. This is signal analysis.
+
 ---
-## Included Modules
 
-This release includes the following non-sensitive components:
+##  What It Does
 
-### 
-- , : Crafting psychological features from text (e.g., modality, self-reference, evaluative tone).
-- , : Clean merging of feature sets for modeling.
-- Built to be modular and stateless — works on any appropriately formatted input.
+1. **Extracts psychologically meaningful signal features**  
+   Affective polarity, subjectivity, negation, modal verbs, self-reference, projection markers, and more.
 
-### 
-- , : Reduces vector spaces to 2D/3D and clusters them using density-based methods.
-- : Orchestrates the entire flow — plug and play.
-- These are not “just visualizations.” They are maps of human projection.
+2. **Embeds those features**  
+   UMAP (Uniform Manifold Approximation and Projection) reduces the vector space while preserving structural topology.
 
-### 
-- , : Automatically generates semantically meaningful cluster summaries.
-- : Merges psychological features and NLP insights to reverse-engineer a profile from its emergent cluster — with just enough interpretability to raise eyebrows.
+3. **Clusters with HDBSCAN**  
+   Density-based clustering reveals naturally emergent groups — no need to predefine how many clusters exist.
 
-### 
-- Custom-built tools to streamline preprocessing, validate feature inputs, and manage label assignments.
-- Light abstractions, no unnecessary wrappers — utility should be quiet.
+4. **Interprets each cluster**  
+   Using feature overlays and summary heuristics to generate human-readable insights into what unites the language patterns.
+
+5. **Visualizes the structure**  
+   UMAP projections colored by cluster ID, confidence, and outlier scores — making interpretation both visible and falsifiable.
+
 ---
-## Tech Stack
+
+##  Epistemological Assumptions
+
+This profiler makes several core bets:
+
+- **Language is performative.** It doesn’t just describe — it discloses.
+- **Repetition is structure.** If someone keeps saying the same thing, it’s not content — it’s compulsion.
+- **Labels are liabilities.** Predefining categories blinds you to emergent ones.
+- **Meaning is relational.** Context matters; anomaly is often signal, not noise.
+
+It assumes that interpretability is a moral obligation — and that unsupervised systems should still answer the question: *“Why did it group this?”*
+
+---
+
+##  Included Modules
+
+This public release includes only safe, generalizable modules. No personal data or scraping logic is exposed.
+
+### `feature_engineering/`
+- Signal construction: Extracts linguistic and psychological features from preprocessed text
+- Modular and stateless: Works on any well-formed input DataFrame
+
+### `modeling/`
+- UMAP: Dimensionality reduction with preservation of relational geometry
+- HDBSCAN: Cluster discovery without rigid boundaries
+- `run_full_process.py`: Orchestrator script for reproducibility
+
+### `interpretation/`
+- Auto-labeling, feature overlays, and human-readable cluster summaries
+- Designed for interpretive use, not classification
+
+### `utils/`
+- Minimal helper functions: clean abstractions, no fluff
+
+---
+
+##  Tech Stack
 
 - **Python 3.10+**
-- , , 
-- , , 
-- , 
+- `pandas`, `numpy`, `scikit-learn`
+- `umap-learn`, `hdbscan`
+- `matplotlib`, `plotly`
+- Built for clarity, not cleverness
 
-Modular enough to adapt. Lightweight enough to deploy. 
+No black boxes. No fragile frameworks. Just data, logic, and structure — as it emerges.
+
 ---
-## Philosophy & Methodology
 
-This project isn't about feeding a black box and hoping for enlightenment. It’s about pushing unsupervised learning to its limits — then dragging the output back into human terms. Because if your clusters don’t survive interpretability, they probably shouldn’t exist.
+##  Philosophy & Methodology
 
-Conceptually, this project leans heavily on:
-- **Complex systems theory**: emergent behavioral patterns out of linguistic noise.
-- **Depth psychology**: projection, repetition compulsion, self-deception.
-- **NLP pragmatism**: vectorization means nothing unless it survives contact with language.
+This system is informed by:
+- **Complex systems theory**: emergent patterns in noisy systems
+- **Depth psychology**: repetition compulsion, projection, identity defenses
+- **Unsupervised learning theory**: let the data speak before we categorize it
 
-This profiler doesn't predict. It **detects**. And in doing so, it exposes — often unintentionally — where ideology, trauma, and performance intersect.
+The profiler doesn’t assume it knows what to look for. Instead, it finds what *keeps happening*, and asks what that repetition reveals.
+
 ---
-##  What This Repo *Does Not* Include
 
-- No private data, identifiers, or web scraping tools.
-- No Reddit handles, usernames, or raw post content.
-- No fine-tuned models that could classify users.
-- No commentary on morality. That’s your job.
+##  Use Cases
+
+- **Digital anthropology**: Understand how ideologies, neuroses, or collective grief form online
+- **Content moderation (ethically)**: Surface problematic structures without moral labeling
+- **Mental health research**: Detect maladaptive language patterns in public discourse
+- **Narrative analytics**: Map the unconscious architecture of storytelling and identity performance
+- **AI explainability**: Use unsupervised patterns to retro-engineer "why" from machine behavior
+
+---
+
+##  Ethics, Privacy, and Boundaries
+
+This project exists **in opposition to surveillance culture**. It was designed to be:
+- **Non-extractive**: No web scraping, no user IDs, no profiles
+- **Interpretation-first**: Not used to classify or rank individuals
+- **Transparent**: Built for inspection, critique, and improvement
+- **Epistemically humble**: It shows structure — not truth
+
+---
+
+##  Repo Structure
+standalone_complex_profiler_public/
+│
+├── feature_engineering/ # Signal and feature extraction
+├── modeling/ # UMAP, HDBSCAN, orchestrator script
+├── interpretation/ # Human-readable cluster summaries
+├── utils/ # Small, shared helper modules
+├── README.md
+└── .gitignore
+
+
+---
+
+## What This Repo *Does Not* Include
+
+- No raw or scraped data
+- No user identifiers
+- No fine-tuned models for individual profiling
+- No externally loaded corpora
+- No moral judgments
+
+This is a **mirror**, not a microscope. If you want surveillance, look elsewhere.
 
 ---
 
 ## License
 
-[MIT License](https://choosealicense.com/licenses/mit/) — because open source should not mean open surveillance.
+[MIT License](https://choosealicense.com/licenses/mit/)  
+Because open source should not mean open surveillance.
+
 ---
-## Final Notes
 
-This codebase is a mirror: hold it up to a corpus, and it reflects structure. Hold it up to yourself, and—well—interpret at your own risk.
+## Final Note
 
-For collaborations, ethical debates, or contract offers that begin with "this might sound crazy but...", feel free to reach out.
+This codebase is a mirror:  
+Hold it up to a corpus, and it reflects structure.  
+Hold it up to ideology, and it reflects contradiction.  
+Hold it up to yourself...
 
+For collaborations, philosophical duels, or invitations to build something strange and true: open an issue, or contact me directly.
 
-No user data, credentials, or web scraping logic is included in this public release.
