@@ -1,0 +1,9 @@
+*.pkl
+*.csv
+*.json
+*.ipynb
+__pycache__/
+*.log
+*.env
+.DS_Store
+*.txt
