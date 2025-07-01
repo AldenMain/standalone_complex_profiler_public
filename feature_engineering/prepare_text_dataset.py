@@ -36,9 +36,9 @@ with open(input_path, "r", encoding="utf-8") as f:
                 "num_comments": post["num_comments"]
             })
         except Exception as e:
-            print(f"⚠️ Skipping bad line: {e}")
+            print(f"Skipping bad line: {e}")
 
 # --- Save as CSV ---
 df = pd.DataFrame(data)
 df.to_csv(output_path, index=False)
-print(f"✅ Cleaned data saved to {output_path} (rows: {len(df)})")
+print(f"Cleaned data saved to {output_path} (rows: {len(df)})")

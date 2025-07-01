@@ -4,14 +4,14 @@ from pathlib import Path
 import sys
 
 def fail(msg):
-    print(f"❌ {msg}")
+    print(f"{msg}")
     sys.exit(1)
 
 def check_file_exists(path):
     if not path.exists() or path.stat().st_size == 0:
         fail(f"File missing or empty: {path}")
     else:
-        print(f"✅ File found: {path}")
+        print(f"File found: {path}")
 
 def validate_pipeline():
     base = Path("data/processed")
@@ -37,30 +37,30 @@ def validate_pipeline():
     # Check row counts
     if not (len(psych) == len(ids) == len(clusters) == embeddings.shape[0]):
         fail("Mismatch in row counts between psych, IDs, clusters, or embeddings.")
-    print("✅ All component datasets have matching row counts.")
+    print("All component datasets have matching row counts.")
 
     # Check ID consistency
     if not (psych["id"].equals(ids["id"]) and psych["id"].equals(clusters["id"])):
         fail("Mismatch in post IDs across datasets.")
-    print("✅ All IDs are aligned across files.")
+    print("All IDs are aligned across files.")
 
     # Check full_features shape
     expected_cols = psych.shape[1] + 1 + embeddings.shape[1]  # +1 for cluster
     if full.shape[1] != expected_cols:
         fail(f"full_features.csv has unexpected number of columns ({full.shape[1]} vs expected {expected_cols})")
-    print("✅ full_features.csv has correct number of columns.")
+    print("full_features.csv has correct number of columns.")
 
     # Check for NaNs
     if full.isnull().any().any():
         fail("NaN values detected in full_features.csv")
-    print("✅ No NaNs in full_features.csv")
+    print("No NaNs in full_features.csv")
 
     # Cluster sanity check
     cluster_counts = clusters["cluster"].value_counts(dropna=False)
-    print("📊 Cluster label distribution:")
+    print("Cluster label distribution:")
     print(cluster_counts)
 
-    print("\n✅ Pipeline validation complete. All systems nominal.")
+    print("\nPipeline validation complete. All systems nominal.")
 
 if __name__ == "__main__":
     validate_pipeline()

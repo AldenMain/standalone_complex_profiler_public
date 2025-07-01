@@ -87,7 +87,7 @@ def main():
     # Save alongside original filename
     output_path = Path("data/processed") / (input_path.stem + "_signals.csv")
     out_df.to_csv(output_path, index=False)
-    print(f"✅ Psychological feature file saved to {output_path}")
+    print(f"Psychological feature file saved to {output_path}")
 
 if __name__ == "__main__":
     main()

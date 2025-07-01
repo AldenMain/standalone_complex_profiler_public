@@ -14,7 +14,7 @@ def main():
 
     # Check if input files exist
     if not embeddings_path.exists() or not ids_path.exists():
-        print(f"⚠️ Missing files! Ensure {embeddings_path} and {ids_path} exist.")
+        print(f"Missing files! Ensure {embeddings_path} and {ids_path} exist.")
         return
 
     # Load data
@@ -24,14 +24,14 @@ def main():
     print(f"Loaded {len(embeddings)} embeddings.")
 
     # Dimensionality reduction with UMAP
-    print("🔽 Performing dimensionality reduction with UMAP...")
+    print("Performing dimensionality reduction with UMAP...")
     reducer = umap.UMAP(n_neighbors=min(15, len(embeddings)-1), min_dist=0.1, metric='cosine', random_state=42)
     embeddings_2d = reducer.fit_transform(embeddings)
     np.save(umap_out_path, embeddings_2d)  # Saving the UMAP output
-    print(f"✅ Saved UMAP embeddings to {umap_out_path}")
+    print(f"Saved UMAP embeddings to {umap_out_path}")
 
     # Clustering with HDBSCAN
-    print("🔍 Clustering with HDBSCAN...")
+    print("Clustering with HDBSCAN...")
     clusterer = hdbscan.HDBSCAN(min_cluster_size=2, prediction_data=True)
     cluster_labels = clusterer.fit_predict(embeddings_2d)
     probs = clusterer.probabilities_
@@ -46,7 +46,7 @@ def main():
 
     # Save to disk
     ids_df.to_csv(cluster_out_path, index=False)
-    print(f"✅ Cluster labels saved to {cluster_out_path}")
+    print(f"Cluster labels saved to {cluster_out_path}")
 
 if __name__ == "__main__":
     main()
