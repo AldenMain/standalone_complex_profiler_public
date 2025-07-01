@@ -106,7 +106,7 @@ def query_llm(prompt):
         )
         return response.content[0].text
     except Exception as e:
-        print(f"❌ Claude API call failed: {e}")
+        print(f"Claude API call failed: {e}")
         raise
 
 def parse_llm_output(llm_text):

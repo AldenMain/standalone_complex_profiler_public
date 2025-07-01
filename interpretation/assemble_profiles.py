@@ -48,17 +48,17 @@ def assemble_markdown(cluster_data: Dict) -> str:
 
 ---
 
-## 🔹 Dominant Traits
+## Dominant Traits
 {traits_formatted}
 
 ---
 
-## 🔹 Psychological Structure
+## Psychological Structure
 {structure}
 
 ---
 
-## 🔹 Top Example Posts
+## Top Example Posts
 (*Placeholder: integrate top posts if available.*)
 
 ---
